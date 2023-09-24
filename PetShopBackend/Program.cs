@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PetShopContext>(options =>
     options.UseSqlite("Data Source=petshop.db"));
 builder.Services.AddScoped<IPetRepository, PetRepository>(); //Added 
+builder.Services.AddScoped<PetService>(); //Added
 
 // Create a scope to access services
 using (var scope = builder.Services.BuildServiceProvider().CreateScope()) //Added 
