@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using PetShopBackend.Models;
+using PetShopBackend.models;
 
 public interface IPetRepository
 {

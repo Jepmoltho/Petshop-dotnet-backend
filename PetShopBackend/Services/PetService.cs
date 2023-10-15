@@ -1,4 +1,4 @@
-using PetShopBackend.Models;
+using PetShopBackend.models;
 
 public class PetService
 {

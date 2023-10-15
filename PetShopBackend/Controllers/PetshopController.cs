@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetShopBackend.Data;
-using PetShopBackend.Models;
+using PetShopBackend.models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

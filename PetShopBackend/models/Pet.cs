@@ -1,13 +1,15 @@
 using System;
 
-namespace PetShopBackend.Models
+namespace PetShopBackend.models
 {
-    public class Pet
+    public class Pet : Item
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Species { get; set; }
+        public string Breed { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+        public string Description { get; set; }
         public DateTime Birthdate { get; set; }
-        // Add other properties as needed
     }
 }
