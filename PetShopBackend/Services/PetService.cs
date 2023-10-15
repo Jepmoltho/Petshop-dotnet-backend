@@ -28,10 +28,10 @@ public class PetService
         List<Pet> oldDogs = new List<Pet>();
         foreach (var pet in pets)
         {
-            if (pet.Species == "Dog" && (now - pet.Birthdate).TotalDays > 365*8)
-            {
-                oldDogs.Add(pet);
-            }
+            // if (pet.Species == "Dog" && (now - pet.Birthdate).TotalDays > 365*8)
+            // {
+            //     oldDogs.Add(pet);
+            // }
         }
         return oldDogs;
 

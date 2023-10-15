@@ -17,11 +17,14 @@ public static class DbInitializer
             return; // The database has been seeded
         }
 
+        //delete all pets in table pet
+        // context.Database.ExecuteSqlRaw("DELETE FROM Pets");
+
         var pets = new Pet[]
         {
-            new Pet { Name = "Buddy", Species = "Dog", Birthdate = new DateTime(2018, 5, 15) },
-            new Pet { Name = "Whiskers", Species = "Cat", Birthdate = new DateTime(2019, 3, 10) },
-            new Pet { Name = "Daisy", Species = "Dog", Birthdate = new DateTime(2017, 4, 20) },
+            new Pet { Name = "Buddy", Species = "Dog", Birthdate = new DateTime(2018, 5, 15), Price = 1000 },
+            new Pet { Name = "Whiskers", Species = "Cat", Birthdate = new DateTime(2019, 3, 10), Price = 199 },
+            new Pet { Name = "Daisy", Species = "Dog", Birthdate = new DateTime(2017, 4, 20), Price = 2000 },
             new Pet { Name = "Bella", Species = "Dog", Birthdate = new DateTime(2016, 6, 2) },
             new Pet { Name = "Coco", Species = "Dog", Birthdate = new DateTime(2015, 7, 4) },
             new Pet { Name = "Charlie", Species = "Dog", Birthdate = new DateTime(2014, 8, 6) },
