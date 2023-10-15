@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PetShopBackend.Data;
-using PetShopBackend.Models;
+using PetShopBackend.models;
 using System;
 using System.Linq;
 

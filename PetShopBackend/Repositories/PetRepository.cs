@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using PetShopBackend.Data;
-using PetShopBackend.Models;
+using PetShopBackend.models;
 
 public class PetRepository : IPetRepository
 {
