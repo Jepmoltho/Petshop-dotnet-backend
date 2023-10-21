@@ -6,4 +6,6 @@ public interface IPetRepository
     Task<List<Pet>> GetAllPets();
 
     Task<Pet> GetPetById(int id);
+
+    Task<List<Pet>> GetPetsByType(string type);
 }

@@ -21,6 +21,12 @@ public class PetService
         return pets; 
     }
 
+    public async Task<List<Pet>> GetPetsByType(string type)
+    {
+        var pets = await _petRepository.GetPetsByType(type);
+        return pets;
+    }
+
     public async Task<List<Pet>> GetOldDogs()
     {
         var pets = await _petRepository.GetAllPets();
@@ -28,10 +34,10 @@ public class PetService
         List<Pet> oldDogs = new List<Pet>();
         foreach (var pet in pets)
         {
-            if (pet.Species == "Dog" && (now - pet.Birthdate).TotalDays > 365*8)
-            {
-                oldDogs.Add(pet);
-            }
+            // if (pet.Species == "Dog" && (now - pet.Birthdate).TotalDays > 365*8)
+            // {
+            //     oldDogs.Add(pet);
+            // }
         }
         return oldDogs;
 

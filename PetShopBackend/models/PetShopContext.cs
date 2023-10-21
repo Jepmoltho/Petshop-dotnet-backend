@@ -15,6 +15,8 @@ namespace PetShopBackend.Data
 
         public  DbSet<Order> Order { get; set; }
 
+        public DbSet<Item> Item { get; set; }
+
         public DbSet<OrderItem> OrderItem { get; set; }
 
         public DbSet<Product> Product { get; set; }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetShopBackend.Data;
 
@@ -10,9 +11,11 @@ using PetShopBackend.Data;
 namespace PetShopBackend.Migrations
 {
     [DbContext(typeof(PetShopContext))]
-    partial class PetShopContextModelSnapshot : ModelSnapshot
+    [Migration("20231015112327_marked properties nullable")]
+    partial class markedpropertiesnullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.11");
@@ -21,20 +24,18 @@ namespace PetShopBackend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(0);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(1);
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -48,31 +49,13 @@ namespace PetShopBackend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EmployeeName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.ToTable("Employee");
-                });
-
-            modelBuilder.Entity("PetShopBackend.models.Item", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(0);
-
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(8);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Item");
-
-                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("PetShopBackend.models.Order", b =>
@@ -125,54 +108,59 @@ namespace PetShopBackend.Migrations
 
             modelBuilder.Entity("PetShopBackend.models.Pet", b =>
                 {
-                    b.HasBaseType("PetShopBackend.models.Item");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Age")
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(4);
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("Birthdate")
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(7);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Breed")
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(3);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(6);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Gender")
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(5);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(1);
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Species")
                         .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(2);
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Pets");
                 });
 
             modelBuilder.Entity("PetShopBackend.models.Product", b =>
                 {
-                    b.HasBaseType("PetShopBackend.models.Item");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(1);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ProductType")
                         .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnOrder(2);
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Product");
                 });
@@ -182,24 +170,6 @@ namespace PetShopBackend.Migrations
                     b.HasOne("PetShopBackend.models.Customer", null)
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PetShopBackend.models.Pet", b =>
-                {
-                    b.HasOne("PetShopBackend.models.Item", null)
-                        .WithOne()
-                        .HasForeignKey("PetShopBackend.models.Pet", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PetShopBackend.models.Product", b =>
-                {
-                    b.HasOne("PetShopBackend.models.Item", null)
-                        .WithOne()
-                        .HasForeignKey("PetShopBackend.models.Product", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
