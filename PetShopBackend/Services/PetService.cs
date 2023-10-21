@@ -21,6 +21,12 @@ public class PetService
         return pets; 
     }
 
+    public async Task<List<Pet>> GetPetsByType(string type)
+    {
+        var pets = await _petRepository.GetPetsByType(type);
+        return pets;
+    }
+
     public async Task<List<Pet>> GetOldDogs()
     {
         var pets = await _petRepository.GetAllPets();

@@ -15,14 +15,17 @@ public class PetRepository : IPetRepository
     {
         var pets = await _context.Pets.ToListAsync();
         return pets;
-        // return pets;
-        // return Ok()
     }
 
     public async Task<Pet> GetPetById(int id)
     {
         var pet = await _context.Pets.Where(x => x.Id == id).FirstOrDefaultAsync();
         return pet; 
+    }
+
+    public async Task<List<Pet>> GetPetsByType(string type){
+        var pets = await _context.Pets.Where(x => x.Species == type).ToListAsync();
+        return pets;
     }
 
 }
