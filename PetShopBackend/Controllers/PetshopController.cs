@@ -52,8 +52,6 @@ public class PetsController : ControllerBase
             _logger.LogError(e, "An error occured");
             return StatusCode(500, "An error occured");
         }
-
-
     }
 
 
