@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetShopBackend.Data;
 
@@ -10,9 +11,11 @@ using PetShopBackend.Data;
 namespace PetShopBackend.Migrations
 {
     [DbContext(typeof(PetShopContext))]
-    partial class PetShopContextModelSnapshot : ModelSnapshot
+    [Migration("20231029170304_List of OrderItems to order table")]
+    partial class ListofOrderItemstoordertable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.11");
@@ -190,13 +193,11 @@ namespace PetShopBackend.Migrations
 
             modelBuilder.Entity("PetShopBackend.models.OrderItem", b =>
                 {
-                    b.HasOne("PetShopBackend.models.Order", "Order")
+                    b.HasOne("PetShopBackend.models.Order", null)
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("PetShopBackend.models.Pet", b =>
