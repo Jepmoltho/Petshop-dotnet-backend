@@ -1,4 +1,4 @@
-
+using PetShopBackend.models;
 
 public class OrderService {
 
@@ -8,6 +8,11 @@ public class OrderService {
         orderRepository = _orderRepository;
     }
 
-    
 
+    // public async Task<Order> PlaceOrder(List<Item> items){
+
+    //     // foreach
+
+    //     // var items = await _orderRepository.GetItemById();
+    // }
 }
