@@ -12,14 +12,22 @@ public class OrderController : ControllerBase {
         _petService = petservice;
     }
 
-    /*
-    YOU GOT TO HERE
-    [HttpPost("placeOrder")]
-    public async Task<IActionResult> PlaceOrderEmployee(List<Item> items){
-         var placeOrder = await _orderService.PlaceOrder(List<Item> items);
-         return Ok(placedOrder);
-     }
-     */
+    
+    //We assume list of items contains list of items chosen from the website, that got them frmo the db.  
+    // [HttpPost("placeOrder")]
+    // public async Task<IActionResult> PlaceOrder(List<Item> items){
+    //     try
+    //     {
+    //      var placeOrder = await _orderService.PlaceOrder(List<Item> items);
+    //      return Ok(placedOrder);
+    //     } 
+    //     catch (Exception ex)
+    //     {
+    //         return null;
+    //     }
+    //     return null;
+    //  }
+     
 
     // [HttpPost("placeOrder")]
     // public async Task<IActionResult> PlaceOrderEmployee(int emplyeeId, List<Item> items){
